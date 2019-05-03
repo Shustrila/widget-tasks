@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height:  100%;
+}
+
+.widget {
+    min-width: 300px;
+    padding: 30px 20px;
+    background-color: #dddddd;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label {
+    margin-bottom: 10px;
+}
+
+.form__input {
+    width: 100%;
+    padding: 5px 10px;
+}

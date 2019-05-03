@@ -1,0 +1,21 @@
+image: Visual Studio 2015
+stack: node 10 # окружение
+branches:
+  only:
+    - master # ветка git
+cache: node_modules # кеширование
+install:
+  - npm install # команда установки зависимостей
+build: off
+build_script:
+  - npm run build # команда сборки
+test_script:
+  - npm run lint # скрипт тестирования
+deploy_script: # скрипт развёртывания
+  - git config --global credential.helper store
+  - git config --global user.name AppVeyor
+  - git config --global user.email ci@appveyor.com
+  - echo https://%GITHUB_TOKEN%:x-oauth-basic@github.com>%USERPROFILE%\.git-credentials
+  - dos2unix %USERPROFILE%\.git-credentials
+  - npx push-dir --dir=dist --branch=gh-pages --force --verbose
+
