@@ -1,19 +1,22 @@
 class Collect {
-    private readonly root : string;
-    private form : object;
-    private listTasks : object;
-    private storage : object;
+    private readonly root: string;
 
-    constructor(form : object, listTasks : object, storage : object) {
+    private form: object;
+
+    private listTasks: object;
+
+    private storage: object;
+
+    constructor(form: object, listTasks: object, storage: object) {
         this.root = '[data-widget=tasks]';
         this.form = form;
         this.listTasks = listTasks;
         this.storage = storage;
     }
 
-    public init() : void {
+    public init(): void {
         const root = document.querySelector(this.root);
-        const form = (<HTMLFormElement>this.form).render();
+        const form = (<HTMLFormElement> this.form).render();
 
         form.addEventListener('submit', this.FormEventSubmit);
 
@@ -21,13 +24,13 @@ class Collect {
         console.log(form);
     }
 
-    private FormEventSubmit(e : any) : void {
-        const title = e.target.elements['title'];
-        const desc = e.target.elements['desc'];
+    private FormEventSubmit(e: any): void {
+        const { title } = e.target.elements;
+        const { desc } = e.target.elements;
 
         e.preventDefault();
 
-        console.log(title.value, desc.value)
+        console.log(title.value, desc.value);
     }
 }
 

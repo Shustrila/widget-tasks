@@ -1,11 +1,17 @@
 class Form {
-    private readonly formClass : string;
-    private readonly submitClass : string;
-    private readonly label : string;
-    private readonly input : string;
-    private readonly fields : Array<string>;
-    private readonly fieldsType : Array<string>;
-    private readonly fieldsPlaceholder : Array<string>;
+    private readonly formClass: string;
+
+    private readonly submitClass: string;
+
+    private readonly label: string;
+
+    private readonly input: string;
+
+    private readonly fields: string[];
+
+    private readonly fieldsType: string[];
+
+    private readonly fieldsPlaceholder: string[];
 
     constructor() {
         this.formClass = 'form';
@@ -17,8 +23,8 @@ class Form {
         this.fieldsPlaceholder = ['Title', 'Description'];
     }
 
-    public render() : HTMLFormElement {
-        const form =  document.createElement('form');
+    public render(): HTMLFormElement {
+        const form = document.createElement('form');
         const submit = document.createElement('input');
 
         form.className = this.formClass;

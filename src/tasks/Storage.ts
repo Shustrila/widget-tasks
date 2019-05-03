@@ -1,5 +1,5 @@
 class Storage {
-    private type : object;
+    private type: object;
 
     constructor(type: object) {
         this.type = type;
